@@ -1,5 +1,7 @@
 import Section from "../components/common/Section";
 import Card from "../components/common/Card";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 /**
  * About Page
@@ -7,6 +9,13 @@ import Card from "../components/common/Card";
  * Includes trust signals for NGO credibility
  */
 function About() {
+
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   // Core values of VEERU
   const values = [
     {

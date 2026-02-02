@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Section from "../components/common/Section";
 import Button from "../components/common/Button";
 import Card from "../components/common/Card";
+import { useEffect } from "react";
 
 /**
  * Home Page
@@ -13,6 +14,13 @@ import Card from "../components/common/Card";
  * - Human-centric CTAs
  */
 function Home() {
+
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   // Services overview for the home page
   const services = [
     {
