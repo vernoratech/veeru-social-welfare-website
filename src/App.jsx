@@ -7,6 +7,7 @@ import OurWork from "./pages/OurWork";
 import WhoWeSupport from "./pages/WhoWeSupport";
 import Volunteer from "./pages/Volunteer";
 import GetHelp from "./pages/GetHelp";
+import NotFound from "./pages/NotFound";
 
 import PageTransition from "./components/layout/PageTransition";
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="who-we-support" element={<WhoWeSupport />} />
           <Route path="volunteer" element={<Volunteer />} />
           <Route path="get-help" element={<GetHelp />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </>
