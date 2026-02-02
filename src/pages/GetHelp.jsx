@@ -126,15 +126,29 @@ function GetHelp() {
   return (
     <div>
       {/* Page Header */}
-      <section className="bg-navy-800 text-white py-16 md:py-20">
-        <div className="section-container">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Get Help
-          </h1>
-          <p className="text-gray-300 text-lg max-w-2xl">
-            If you're going through a difficult time, you've come to the right
-            place. We're here to listen, guide, and support you.
-          </p>
+      <section className="bg-navy-800 text-white py-20 md:py-24 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-navy-900/40 rounded-l-full blur-3xl soft-float pointer-events-none"></div>
+        <div className="section-container relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 font-serif-heading">
+                Get Help
+              </h1>
+              <p className="text-gray-300 text-lg max-w-xl border-l-2 border-forest-500 pl-6 py-2">
+                If you're going through a difficult time, you've come to the
+                right place. We're here to listen, guide, and support you.
+              </p>
+            </div>
+            <div className="relative hidden lg:block">
+              <div className="image-offset-border">
+                <img
+                  src="/images/assets/helpline.png"
+                  alt="We are here to help"
+                  className="w-full organic-mask shadow-2xl scale-95"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

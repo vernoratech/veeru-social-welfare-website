@@ -161,7 +161,7 @@ function Home() {
             <div className="lg:col-span-5 relative hidden lg:block">
               <div className="organic-mask w-full aspect-[4/5] relative">
                 <img
-                  src="/home/openspace/.gemini/antigravity/brain/2f662fb5-0034-4271-b87b-6d432a1978b7/ngo_hero_volunteers_1770010841744.png"
+                  src="https://media.istockphoto.com/id/535553339/photo/group-of-indian-children.jpg?s=612x612&w=0&k=20&c=I7rQK9kFP1QBuW_C0RWh_TQpQnLtcIUi-V9BEA2PMfE="
                   alt="VEERU Volunteers"
                   className="w-full h-full object-cover"
                 />
@@ -223,7 +223,7 @@ function Home() {
           <div className="lg:col-span-6 relative">
             <div className="image-offset-border">
               <img
-                src="/home/openspace/.gemini/antigravity/brain/2f662fb5-0034-4271-b87b-6d432a1978b7/ngo_community_unity_1770010900554.png"
+                src="/images/assets/community.png"
                 alt="VEERU Community"
                 className="w-full organic-mask"
               />
@@ -284,7 +284,7 @@ function Home() {
               {index === 0 && (
                 <div className="mt-auto pt-4 border-t border-gray-100">
                   <img
-                    src="/home/openspace/.gemini/antigravity/brain/2f662fb5-0034-4271-b87b-6d432a1978b7/ngo_education_support_1770010858004.png"
+                    src="/images/assets/education.png"
                     alt="Education"
                     className="w-full h-32 object-cover rounded-sm group-hover:opacity-90 transition-opacity"
                   />
@@ -293,7 +293,7 @@ function Home() {
               {index === 1 && (
                 <div className="mt-auto pt-4 border-t border-gray-100">
                   <img
-                    src="/home/openspace/.gemini/antigravity/brain/2f662fb5-0034-4271-b87b-6d432a1978b7/ngo_medical_help_1770010879408.png"
+                    src="/images/assets/medical.png"
                     alt="Medical"
                     className="w-full h-32 object-cover rounded-sm group-hover:opacity-90 transition-opacity"
                   />
@@ -373,7 +373,7 @@ function Home() {
           <div className="flex flex-wrap justify-center gap-4">
             <Button
               to="/get-help"
-              className="bg-white text-warmth-700 hover:bg-warmth-50"
+              className="bg-white hover:bg-warmth-50 text-black"
             >
               I Need Help
             </Button>

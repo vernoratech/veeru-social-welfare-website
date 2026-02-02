@@ -105,15 +105,29 @@ function Volunteer() {
   return (
     <div>
       {/* Page Header */}
-      <section className="bg-navy-800 text-white py-16 md:py-20">
-        <div className="section-container">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Volunteer With Us
-          </h1>
-          <p className="text-gray-300 text-lg max-w-2xl">
-            Your time and skills can make a real difference. Join VEERU's
-            community of volunteers and be part of meaningful change.
-          </p>
+      <section className="bg-navy-800 text-white py-20 md:py-24 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-forest-600/10 rounded-l-full blur-3xl soft-float pointer-events-none"></div>
+        <div className="section-container relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 font-serif-heading">
+                Volunteer With Us
+              </h1>
+              <p className="text-gray-300 text-lg max-w-xl border-l-2 border-forest-500 pl-6 py-2">
+                Your time and skills can make a real difference. Join VEERU's
+                community of volunteers and be part of meaningful change.
+              </p>
+            </div>
+            <div className="relative hidden lg:block">
+              <div className="image-offset-border">
+                <img
+                  src="/images/assets/volunteer-action.png"
+                  alt="Volunteers in Action"
+                  className="w-full organic-mask shadow-2xl"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

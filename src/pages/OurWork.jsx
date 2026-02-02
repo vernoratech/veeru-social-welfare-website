@@ -278,6 +278,28 @@ function OurWork() {
                   <p className="text-gray-600 mt-2">{service.summary}</p>
                 </div>
               </div>
+
+              {/* Contextual Image */}
+              <div className="mt-8 hidden lg:block">
+                {service.id === "education" && (
+                  <div className="image-offset-border">
+                    <img
+                      src="/images/assets/education.png"
+                      alt="Education Support"
+                      className="w-full organic-mask"
+                    />
+                  </div>
+                )}
+                {service.id === "medical" && (
+                  <div className="image-offset-border">
+                    <img
+                      src="/images/assets/medical.png"
+                      alt="Medical Assistance"
+                      className="w-full organic-mask"
+                    />
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Description */}

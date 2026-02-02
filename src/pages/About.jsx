@@ -208,12 +208,20 @@ function About() {
               </div>
             </div>
           </div>
-          <div className="bg-forest-50 rounded-lg p-8 md:p-10">
-            <blockquote className="text-xl md:text-2xl text-forest-800 font-medium italic leading-relaxed">
-              "We believe that in a moment of crisis, no one should have to
-              choose between their dignity and getting help."
-            </blockquote>
-            <p className="mt-4 text-forest-700 font-medium">— The VEERU Team</p>
+          <div className="relative">
+            <div className="image-offset-border">
+              <img
+                src="/images/assets/team-workshop.png"
+                alt="VEERU Team at Work"
+                className="w-full organic-mask shadow-2xl"
+              />
+            </div>
+            {/* Floating Quote Accent */}
+            <div className="absolute -bottom-6 -right-6 bg-forest-700 text-white p-6 organic-mask shadow-xl hidden md:block max-w-[200px]">
+              <p className="text-sm italic text-white">
+                "Solidarity is our strongest currency."
+              </p>
+            </div>
           </div>
         </div>
       </Section>

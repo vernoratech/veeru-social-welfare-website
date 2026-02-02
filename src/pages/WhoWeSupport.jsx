@@ -137,13 +137,32 @@ function WhoWeSupport() {
               key={index}
               className={`p-6 md:p-8 rounded-lg ${index % 2 === 0 ? "bg-white border border-gray-200" : "bg-gray-50"}`}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 {/* Title and Description */}
                 <div className="lg:col-span-1">
-                  <h2 className="text-xl font-bold text-navy-800 mb-3">
+                  <h2 className="text-xl font-bold text-navy-800 mb-3 font-serif-heading">
                     {category.title}
                   </h2>
                   <p className="text-gray-600">{category.description}</p>
+
+                  {index === 0 && (
+                    <div className="mt-8 image-offset-border hidden lg:block">
+                      <img
+                        src="/images/assets/community.png"
+                        alt="Community Unity"
+                        className="w-full organic-mask"
+                      />
+                    </div>
+                  )}
+                  {index === 6 && (
+                    <div className="mt-8 image-offset-border hidden lg:block">
+                      <img
+                        src="/images/assets/women-welfare.png"
+                        alt="Women Welfare"
+                        className="w-full organic-mask"
+                      />
+                    </div>
+                  )}
                 </div>
 
                 {/* Details */}
