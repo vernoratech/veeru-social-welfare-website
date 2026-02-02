@@ -14,7 +14,6 @@ import { useEffect } from "react";
  * - Human-centric CTAs
  */
 function Home() {
-
   const location = useLocation();
 
   useEffect(() => {
@@ -158,7 +157,7 @@ function Home() {
                 <Button
                   variant="outline"
                   to="/volunteer"
-                  className="border-white text-white hover:bg-white hover:text-navy-800 px-8 !py-4"
+                  className="!border-white !text-white hover:!bg-white hover:!text-navy-800"
                 >
                   Volunteer With Us
                 </Button>
@@ -378,16 +377,14 @@ function Home() {
             Whether you need support, want to help others, or just want to learn
             more about our work — we're here for you.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button
-              to="/get-help"
-              className="bg-white hover:bg-warmth-50 text-black"
-            >
+          <div className="flex flex-wrap justify-center gap-6">
+            <Button to="/get-help" variant="white" className="px-10 py-4">
               I Need Help
             </Button>
             <Button
               to="/volunteer"
-              className="bg-navy-800 text-white hover:bg-navy-700"
+              variant="primary"
+              className="px-10 py-4 shadow-2xl"
             >
               I Want to Help
             </Button>

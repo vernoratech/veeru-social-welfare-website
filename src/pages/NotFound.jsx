@@ -21,7 +21,7 @@ const NotFound = () => {
 
         <Link
           to="/"
-          className="inline-flex items-center gap-2 px-8 py-3 bg-forest-600 text-white rounded-lg font-semibold hover:bg-forest-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+          className="inline-flex items-center gap-2 px-8 py-4 bg-forest-500 text-white rounded-xl font-bold hover:bg-forest-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:scale-95"
         >
           <Home size={20} />
           Back to Home

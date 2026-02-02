@@ -336,12 +336,13 @@ function Volunteer() {
               <li>• What type of volunteering interests you</li>
               <li>• Any specific skills you'd like to offer</li>
             </ul>
-            <a
+            <Button
               href="mailto:volunteer@veeru.org?subject=Volunteer Interest"
-              className="btn-primary w-full text-center"
+              variant="secondary"
+              className="w-full shadow-lg"
             >
               Email Us at volunteer@veeru.org
-            </a>
+            </Button>
           </div>
         </div>
       </Section>

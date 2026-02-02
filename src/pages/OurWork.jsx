@@ -403,12 +403,13 @@ function OurWork() {
             If any of these services can help you or someone you know, please
             reach out. We're here to support you.
           </p>
-          <a
-            href="/get-help"
-            className="inline-flex items-center justify-center px-6 py-3 bg-white text-forest-700 font-medium rounded-md hover:bg-forest-50 transition-colors duration-200"
+          <Button
+            to="/get-help"
+            variant="white"
+            className="px-10 py-4 shadow-2xl"
           >
             Get Help Now
-          </a>
+          </Button>
         </div>
       </section>
     </div>

@@ -364,18 +364,19 @@ function Donate() {
               </p>
 
               <div className="flex flex-col gap-3">
-                <button
+                <Button
                   onClick={() => setModalStep("input")}
-                  className="w-full py-4 bg-forest-500 text-white rounded-xl font-bold text-lg hover:bg-forest-600 transition-all shadow-lg shadow-forest-200 active:scale-[0.98]"
+                  variant="secondary"
+                  className="w-full !py-4 shadow-xl"
                 >
                   Yes, I am 18+
-                </button>
-                <button
+                </Button>
+                <Button
                   onClick={closeModal}
-                  className="w-full py-4 bg-gray-100 text-gray-600 rounded-xl font-bold text-lg hover:bg-gray-200 transition-all active:scale-[0.98]"
+                  className="w-full !py-4 bg-gray-100 text-gray-600 hover:bg-gray-200"
                 >
                   No, I am under 18
-                </button>
+                </Button>
               </div>
             </div>
           )}
@@ -451,13 +452,16 @@ function Donate() {
                   />
                 </div>
 
-                <button
+                <Button
                   onClick={handleGenerateQR}
                   disabled={!isValidInput() || isGeneratingQR}
-                  className={`w-full py-4 rounded-xl font-bold text-lg uppercase tracking-wide transition-all duration-300 flex items-center justify-center gap-2 ${
-                    isValidInput() && !isGeneratingQR
-                      ? "bg-forest-500 text-white hover:bg-forest-600 shadow-lg shadow-forest-200 cursor-pointer"
-                      : "bg-gray-200 text-gray-400 cursor-not-allowed"
+                  variant={
+                    isValidInput() && !isGeneratingQR ? "secondary" : "primary"
+                  }
+                  className={`w-full !py-4 ${
+                    !isValidInput() || isGeneratingQR
+                      ? "!bg-gray-200 !text-gray-400 !cursor-not-allowed !shadow-none"
+                      : ""
                   }`}
                 >
                   {isGeneratingQR ? (
@@ -471,7 +475,7 @@ function Donate() {
                       Generate QR
                     </>
                   )}
-                </button>
+                </Button>
               </div>
             </div>
           )}
@@ -531,13 +535,14 @@ function Donate() {
                 Use any UPI app to scan and complete your donation.
               </p>
 
-              <button
+              <Button
                 onClick={handleDone}
-                className="w-full py-4 bg-forest-500 text-white rounded-xl font-bold text-lg uppercase tracking-wide hover:bg-forest-600 transition-all shadow-lg shadow-forest-200 flex items-center justify-center gap-2"
+                variant="secondary"
+                className="w-full !py-4 shadow-xl"
               >
                 <Heart size={20} className="fill-current" />
                 Done
-              </button>
+              </Button>
             </div>
           )}
 
