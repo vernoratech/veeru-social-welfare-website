@@ -9,6 +9,8 @@ import Volunteer from "./pages/Volunteer";
 import GetHelp from "./pages/GetHelp";
 import NotFound from "./pages/NotFound";
 import Donate from "./pages/Donate";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
 
 import PageTransition from "./components/layout/PageTransition";
 
@@ -29,6 +31,8 @@ function App() {
           <Route path="volunteer" element={<Volunteer />} />
           <Route path="get-help" element={<GetHelp />} />
           <Route path="donate" element={<Donate />} />
+          <Route path="terms" element={<Terms />} />
+          <Route path="privacy" element={<Privacy />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

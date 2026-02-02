@@ -40,6 +40,23 @@ function Donate() {
   const [isQRImageLoading, setIsQRImageLoading] = useState(true);
   const [contactInput, setContactInput] = useState("");
   const [nameInput, setNameInput] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false);
+  const [showTermsModal, setShowTermsModal] = useState(false);
+
+  // Handle scroll lock when modals are open
+  useEffect(() => {
+    const isAnyModalOpen = modalStep !== "closed" || showTermsModal;
+    if (isAnyModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [modalStep, showTermsModal]);
 
   // Celebration particles
   const [particles] = useState(() =>
@@ -247,9 +264,55 @@ function Donate() {
               </div>
 
               <div className="pt-2">
+                {/* Terms and Conditions Checkbox */}
+                <div
+                  className="flex items-start gap-3 mb-6 group cursor-pointer"
+                  onClick={() => setTermsAccepted(!termsAccepted)}
+                >
+                  <div
+                    className={`mt-1 flex-shrink-0 w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${
+                      termsAccepted
+                        ? "bg-forest-500 border-forest-500"
+                        : "border-gray-300 group-hover:border-forest-400"
+                    }`}
+                  >
+                    {termsAccepted && (
+                      <svg
+                        className="w-3.5 h-3.5 text-white"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      >
+                        <path d="M5 13l4 4L19 7" />
+                      </svg>
+                    )}
+                  </div>
+                  <p className="text-xs text-gray-500 leading-tight select-none">
+                    I agree to the{" "}
+                    <button
+                      type="button"
+                      className="text-forest-600 font-bold hover:underline"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setShowTermsModal(true);
+                      }}
+                    >
+                      Terms & Conditions
+                    </button>{" "}
+                    and understand that my contribution will be used for social
+                    welfare.
+                  </p>
+                </div>
+
                 <Button
-                  variant="primary"
-                  className="w-full text-lg py-5 shadow-xl shadow-forest-500/20 group"
+                  variant={termsAccepted ? "primary" : "primary"}
+                  disabled={!termsAccepted}
+                  className={`w-full text-lg py-5 shadow-xl group ${
+                    !termsAccepted
+                      ? "opacity-50 cursor-not-allowed grayscale"
+                      : "shadow-forest-500/20"
+                  }`}
                   onClick={handleDonateClick}
                 >
                   Donate ₹{parseInt(getActiveAmount() || 0).toLocaleString()}{" "}
@@ -601,6 +664,98 @@ function Donate() {
               </div>
             </div>
           )}
+        </div>
+      )}
+      {/* ==================== TERMS MODAL ==================== */}
+      {showTermsModal && (
+        <div
+          className="fixed inset-0 z-[10000] flex items-center justify-center bg-navy-900/90 backdrop-blur-sm p-4"
+          onClick={() => setShowTermsModal(false)}
+        >
+          <div
+            className="bg-white rounded-3xl w-full max-w-lg overflow-hidden flex flex-col max-h-[80vh] shadow-2xl animate-in fade-in zoom-in-95 duration-300"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="p-6 border-b border-gray-100 flex items-center justify-between">
+              <h3 className="text-xl font-bold text-navy-800">
+                Donation Terms & Conditions
+              </h3>
+              <button
+                onClick={() => setShowTermsModal(false)}
+                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+              >
+                <X size={20} className="text-gray-400" />
+              </button>
+            </div>
+
+            <div className="p-6 overflow-y-auto space-y-6 text-sm text-gray-600 leading-relaxed">
+              <section>
+                <h4 className="font-bold text-navy-800 mb-2">
+                  1. Voluntary Contribution
+                </h4>
+                <p>
+                  All donations made to VEERU are completely voluntary. By
+                  checking the box, you confirm that you are contributing of
+                  your own free will to support our social welfare initiatives.
+                </p>
+              </section>
+
+              <section>
+                <h4 className="font-bold text-navy-800 mb-2">
+                  2. Non-Refundable Policy
+                </h4>
+                <p>
+                  Due to the nature of charitable work and immediate allocation
+                  of funds to projects, donations once made are non-refundable.
+                  Please ensure the amount entered is correct before proceeding.
+                </p>
+              </section>
+
+              <section>
+                <h4 className="font-bold text-navy-800 mb-2">
+                  3. Use of Funds
+                </h4>
+                <p>
+                  Your contributions will be utilized across our core impact
+                  areas: Education Support, Medical Aid, and Community
+                  Development. We maintain strict financial transparency and
+                  ensure that every rupee is accounted for.
+                </p>
+              </section>
+
+              <section>
+                <h4 className="font-bold text-navy-800 mb-2">
+                  4. Data Privacy
+                </h4>
+                <p>
+                  The name and contact details you provide are used solely for
+                  issuing receipts and providing updates on our impact. We do
+                  not share your personal information with third-party marketing
+                  agencies.
+                </p>
+              </section>
+
+              <div className="p-4 bg-forest-50 rounded-xl border border-forest-100">
+                <p className="text-forest-700 italic">
+                  "Your trust is our most valuable asset. We promise to honor
+                  your contribution by serving those in need with integrity."
+                </p>
+              </div>
+            </div>
+
+            <div className="p-6 border-t border-gray-100 mt-auto">
+              <Button
+                variant="primary"
+                className="w-full"
+                onClick={() => {
+                  setTermsAccepted(true);
+                  setShowTermsModal(false);
+                }}
+              >
+                I Understand & Agree
+              </Button>
+            </div>
+          </div>
         </div>
       )}
     </>
