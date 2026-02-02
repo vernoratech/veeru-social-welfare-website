@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./Preloader.css";
 
 /**
  * Preloader Component
@@ -10,20 +11,24 @@ const Preloader = () => {
   const [shouldRender, setShouldRender] = useState(true);
 
   useEffect(() => {
+    // Lock scroll
+    document.body.classList.add("preloader-active");
+
     // Start opening the curtain after a short delay
     const startTimer = setTimeout(() => {
       setIsHidden(true);
-    }, 500); // Wait 0.5s before starting the 4s animation
+    }, 500);
 
     // Remove component from DOM after animation completes
-    // 0.5s initial + 4s transition = 4.5s
     const removeTimer = setTimeout(() => {
       setShouldRender(false);
+      document.body.classList.remove("preloader-active");
     }, 5000);
 
     return () => {
       clearTimeout(startTimer);
       clearTimeout(removeTimer);
+      document.body.classList.remove("preloader-active");
     };
   }, []);
 

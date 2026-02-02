@@ -1,0 +1,82 @@
+.preloader-container {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+  background-color: transparent;
+}
+
+/* While preloader is active, prevent clicks to background */
+.preloader-container:not(.preloader-hidden) {
+  pointer-events: auto;
+}
+
+.curtain-panel {
+  position: absolute;
+  top: 0;
+  width: 50vw;
+  height: 100vh;
+  background-color: #0c1b33; /* navy-800 */
+  transition: transform 4s cubic-bezier(0.77, 0, 0.175, 1);
+  z-index: 100000;
+}
+
+.curtain-panel-left {
+  left: 0;
+  transform: translateX(0);
+}
+
+.curtain-panel-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.preloader-hidden .curtain-panel-left {
+  transform: translateX(-100%);
+}
+
+.preloader-hidden .curtain-panel-right {
+  transform: translateX(100%);
+}
+
+.preloader-content {
+  position: relative;
+  z-index: 100001;
+  text-align: center;
+  transition: opacity 1.5s ease-out, transform 2s ease-out;
+  opacity: 1;
+}
+
+.preloader-hidden .preloader-content {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.preloader-logo {
+  font-family: 'Playfair Display', serif; /* A common high-quality serif */
+  font-style: italic;
+  font-size: clamp(2rem, 10vw, 4rem);
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.preloader-subtitle {
+  color: #10b981; /* forest-500 */
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  font-size: clamp(0.6rem, 2vw, 0.9rem);
+  font-weight: 800;
+  opacity: 0.9;
+}
+
+/* Ensure body scroll is hidden during preloader */
+body.preloader-active {
+  overflow: hidden !important;
+}
