@@ -18,10 +18,11 @@
 .curtain-panel {
   position: absolute;
   top: 0;
-  width: 50vw;
+  width: 51vw; /* Overlap to prevent center gap/line */
   height: 100vh;
   background-color: #0c1b33; /* navy-800 */
-  transition: transform 4s cubic-bezier(0.77, 0, 0.175, 1);
+  /* Default: Instant snap for resetting/covering */
+  transition: transform 0s;
   z-index: 100000;
 }
 
@@ -36,10 +37,14 @@
 }
 
 .preloader-hidden .curtain-panel-left {
+  /* Reveal: Slow, premium animation LEFT */
+  transition: transform 4s cubic-bezier(0.77, 0, 0.175, 1);
   transform: translateX(-100%);
 }
 
 .preloader-hidden .curtain-panel-right {
+  /* Reveal: Slow, premium animation RIGHT */
+  transition: transform 4s cubic-bezier(0.77, 0, 0.175, 1);
   transform: translateX(100%);
 }
 
@@ -47,17 +52,17 @@
   position: relative;
   z-index: 100001;
   text-align: center;
-  transition: opacity 1.5s ease-out, transform 2s ease-out;
+  transition: opacity 0.8s ease-out, transform 2s ease-out; /* Fast fade out */
   opacity: 1;
 }
 
 .preloader-hidden .preloader-content {
   opacity: 0;
-  transform: scale(1.1);
+  transform: scale(0.9); /* Slight shrink instead of grow for cleaner exit */
 }
 
 .preloader-logo {
-  font-family: 'Playfair Display', serif; /* A common high-quality serif */
+  font-family: 'Playfair Display', serif;
   font-style: italic;
   font-size: clamp(2rem, 10vw, 4rem);
   font-weight: 900;

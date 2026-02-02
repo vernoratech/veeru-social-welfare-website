@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import CookieConsent from "../common/CookieConsent";
 
 /**
  * Layout Component
@@ -15,6 +16,7 @@ function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <CookieConsent />
     </div>
   );
 }

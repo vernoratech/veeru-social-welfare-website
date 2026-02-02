@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import "./Preloader.css";
 
 /**
  * Preloader Component
- * Creates an overlapping curtain animation that opens from the center.
+ * Creates an overlapping curtain animation that opens vertically.
  * Duration: 4 seconds (controlled via CSS and state)
  */
-const Preloader = () => {
+const Preloader = memo(() => {
   const [isHidden, setIsHidden] = useState(false);
   const [shouldRender, setShouldRender] = useState(true);
 
@@ -38,9 +38,9 @@ const Preloader = () => {
     <div
       className={`preloader-container ${isHidden ? "preloader-hidden" : ""}`}
     >
-      {/* Curtain Panels */}
-      <div className="curtain-panel curtain-panel-left"></div>
-      <div className="curtain-panel curtain-panel-right"></div>
+      {/* Curtain Panels - Vertically Spaced */}
+      <div className="curtain-panel curtain-panel-top"></div>
+      <div className="curtain-panel curtain-panel-bottom"></div>
 
       {/* Center Content */}
       <div className="preloader-content">
@@ -49,6 +49,8 @@ const Preloader = () => {
       </div>
     </div>
   );
-};
+});
+
+Preloader.displayName = "Preloader";
 
 export default Preloader;

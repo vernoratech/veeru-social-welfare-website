@@ -8,6 +8,8 @@ import WhoWeSupport from "./pages/WhoWeSupport";
 import Volunteer from "./pages/Volunteer";
 import GetHelp from "./pages/GetHelp";
 
+import PageTransition from "./components/layout/PageTransition";
+
 /**
  * Main App Component
  * Routes for all VEERU pages with consistent Layout wrapper
@@ -15,7 +17,7 @@ import GetHelp from "./pages/GetHelp";
 function App() {
   return (
     <>
-      <Preloader />
+      <PageTransition />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
