@@ -94,6 +94,12 @@ function Header() {
                   {link.label}
                 </NavLink>
               ))}
+              <Link
+                to="/donate"
+                className="ml-4 px-6 py-2.5 bg-forest-500 text-white text-xs font-bold uppercase tracking-widest rounded shadow-lg shadow-forest-200 hover:bg-forest-600 hover:shadow-forest-300 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+              >
+                Donate
+              </Link>
             </nav>
 
             {/* Mobile Menu Button */}
