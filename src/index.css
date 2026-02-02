@@ -1,0 +1,140 @@
+/* 
+ * VEERU - Social Welfare Organization Styles
+ * Design Philosophy: Clean, trustworthy, human-centric NGO aesthetic
+ * NO flashy gradients, NO glassmorphism, NO aggressive donation UI
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles for trust-first NGO design */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-gray-800 bg-white antialiased;
+    line-height: 1.7;
+  }
+
+  /* Headings - Using Serif for that "Established/Documentary" feel where appropriate */
+  h1, h2, h3 {
+    @apply font-bold leading-tight text-navy-800;
+  }
+  
+  .font-serif-heading {
+    @apply font-serif italic font-medium;
+  }
+  
+  .mission-text {
+    @apply font-serif text-lg md:text-xl italic text-navy-700 leading-relaxed;
+  }
+
+  p {
+    @apply text-gray-700 leading-relaxed;
+  }
+  
+  a {
+    @apply text-navy-700 hover:text-navy-900 transition-colors duration-200;
+  }
+}
+
+/* Reusable component styles */
+@layer components {
+  /* Primary button - Navy for trust */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 
+           bg-navy-800 text-white font-semibold rounded-sm
+           hover:bg-navy-700 focus:outline-none focus:ring-2 
+           focus:ring-navy-500 focus:ring-offset-2
+           transition-colors duration-200 uppercase tracking-wider text-sm;
+  }
+  
+  /* Secondary button - Green for hope/action */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 
+           bg-forest-700 text-white font-semibold rounded-sm
+           hover:bg-forest-600 focus:outline-none focus:ring-2 
+           focus:ring-forest-500 focus:ring-offset-2
+           transition-colors duration-200 uppercase tracking-wider text-sm;
+  }
+  
+  /* Outline button - Subtle, non-aggressive */
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-3 
+           border-2 border-navy-800 text-navy-800 font-semibold rounded-sm
+           hover:bg-navy-50 focus:outline-none focus:ring-2 
+           focus:ring-navy-500 focus:ring-offset-2
+           transition-colors duration-200 uppercase tracking-wider text-sm;
+  }
+
+  /* Utility Top Bar - Very common for NGOs */
+  .top-bar {
+    @apply bg-navy-900 text-white py-2 text-xs font-medium border-b border-navy-800;
+  }
+  
+  /* Card styles for services and information */
+  .card {
+    @apply bg-white rounded-none border border-gray-200 p-6
+           shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+  
+  /* Section container for consistent spacing */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Section padding rhythm */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+}
+
+/* Utility overrides for NGO-appropriate styling */
+@layer utilities {
+  /* Subtle text muting for secondary content */
+  .text-muted {
+    @apply text-gray-600;
+  }
+  
+  .border-accent {
+    @apply border-l-4 border-forest-600 pl-4 py-2;
+  }
+
+  /* Organic Visual Utilities */
+  .organic-mask {
+    border-radius: 60px 20px 100px 40px;
+    @apply overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.01];
+  }
+
+  .image-offset-border {
+    @apply relative;
+  }
+
+  .image-offset-border::after {
+    content: "";
+    @apply absolute -top-4 -left-4 w-full h-full border-2 border-forest-200 -z-10 transition-transform duration-500;
+    border-radius: 40px 100px 20px 60px;
+  }
+
+  .image-offset-border:hover::after {
+    @apply translate-x-1 translate-y-1;
+  }
+
+  .soft-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+}
+
