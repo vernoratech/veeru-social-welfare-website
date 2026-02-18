@@ -190,7 +190,7 @@ function Footer() {
               © {currentYear} VEERU. All rights reserved.
             </p>
             <div className="h-px w-8 bg-white/10 mx-auto"></div>
-            <p className="text-[9px] uppercase tracking-[0.4em] font-medium text-gray-300 flex flex-col items-center gap-2">
+            <div className="text-[9px] uppercase tracking-[0.4em] font-medium text-gray-300 flex flex-col items-center gap-2">
               <span className="opacity-80">Crafted with Excellence by</span>
               <a
                 href="https://vernoratech.in"
@@ -198,12 +198,12 @@ function Footer() {
                 rel="noopener noreferrer"
                 className="group relative px-4 py-1.5 overflow-hidden rounded-full border border-white/5 bg-white/[0.02] transition-all hover:bg-white/[0.05] hover:border-white/10"
               >
-                <span className="relative  z-10 text-blue-500 font-black tracking-[0.2em] transition-all group-hover:tracking-[0.3em]">
+                <span className="relative z-10 text-blue-500 font-black tracking-[0.2em] transition-all group-hover:tracking-[0.3em]">
                   VERNORA<span className="text-white">TECH</span>
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
               </a>
-            </p>
+            </div>
           </div>
         </div>
       </div>
